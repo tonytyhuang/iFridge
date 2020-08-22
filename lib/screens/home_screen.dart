@@ -120,6 +120,18 @@ class _HomeScreenState extends State<HomeScreen> {
           width: 160.0,
           color: Colors.green,
         ), 
+        Container(
+          width: 160.0,
+          color: Colors.orange,
+        ), 
+        Container(
+          width: 160.0,
+          color: Colors.yellow,
+        ), 
+        Container(
+          width: 160.0,
+          color: Colors.teal,
+        ), 
       ]
     )
   );
