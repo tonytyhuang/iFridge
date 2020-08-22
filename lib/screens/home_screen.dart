@@ -10,9 +10,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[ 
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
             _buildTitle(),
             Padding(
               padding: EdgeInsets.only(left: 8.0, bottom: 16),
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Tony's Fridge Overview", 
+                    "Tony's Fridge Overview",
                     style: TextStyle(fontSize: 20.0),
                     textAlign: TextAlign.left,
                   ),
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             _horizontalScroll(),
-          
+
             //Card Section
             SizedBox(
               height: 25,
@@ -66,19 +66,22 @@ class _HomeScreenState extends State<HomeScreen> {
             //     Container(
             //       width: 160.0,
             //       color: Colors.blue,
-            //     ), 
+            //     ),
             //     Container(
             //       width: 160.0,
             //       color: Colors.red,
-            //     ), 
+            //     ),
             //     Container(
             //       width: 160.0,
             //       color: Colors.green,
-            //     ), 
+            //     ),
 
             //   ]
 
             // ),
+            RaisedButton(
+                onPressed: () => Navigator.pushNamed(context, 'input_screen'),
+                child: const Text('Enter Items')),
 
             Padding(
               padding: EdgeInsets.only(top: 200),
@@ -86,62 +89,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.lightBlue,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
-                disabledTextColor: Colors.black, 
+                disabledTextColor: Colors.black,
                 padding: EdgeInsets.all(8.0),
-                splashColor: Colors.blueAccent, 
+                splashColor: Colors.blueAccent,
                 onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
                 child: Text(
-                  "Shopping List", 
+                  "Shopping List",
                   style: TextStyle(fontSize: 30.0),
                 ),
               ),
             ),
-          ]
-        )
-      ), 
+          ])),
     );
   }
 
-
   Widget _horizontalScroll() => Container(
-    height: 200.0,
-    child: ListView(
-      scrollDirection:  Axis.horizontal,
-      children: <Widget>[
+      height: 200.0,
+      child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
         Container(
           width: 160.0,
           color: Colors.blue,
-        ), 
+        ),
         Container(
           width: 160.0,
           color: Colors.red,
-        ), 
+        ),
         Container(
           width: 160.0,
           color: Colors.green,
-        ), 
+        ),
         Container(
           width: 160.0,
           color: Colors.orange,
-        ), 
+        ),
         Container(
           width: 160.0,
           color: Colors.yellow,
-        ), 
+        ),
         Container(
           width: 160.0,
           color: Colors.teal,
-        ), 
-      ]
-    )
-  );
+        ),
+      ]));
 
   Widget _buildTitle() => Padding(
-    padding: EdgeInsets.only(top: 8.0, left: 16.0),
-    child: Text(
-      "iFridge",
-      textAlign: TextAlign.left,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)
-    ),
-  );
+        padding: EdgeInsets.only(top: 8.0, left: 16.0),
+        child: Text("iFridge",
+            textAlign: TextAlign.left,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
+      );
 } // End of class
