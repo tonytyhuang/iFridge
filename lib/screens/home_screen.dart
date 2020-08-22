@@ -20,6 +20,22 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 25,
             ),
 
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black, 
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent, 
+              onPressed: (){
+
+              }, 
+              child: Text(
+                "Jackie's Button", 
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            
             Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 16),
               child: Column(
@@ -27,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <Widget>[
                   Text('Good Morning'),
                   Text('Tony Huang')
-                ],),
+                ],
+              ),
             )
           ]
         )
