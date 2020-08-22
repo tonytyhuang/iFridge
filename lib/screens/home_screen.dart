@@ -9,11 +9,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin:EdgeInsets.only(top: 8),
-        child: ListView(
-          physics: ClampingScrollPhysics(),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[ 
+            _buildTitle(),
+            Padding(
+              padding: EdgeInsets.only(left: 8.0, bottom: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Tony's Fridge Overview", 
+                    style: TextStyle(fontSize: 20.0),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+            ),
+            _horizontalScroll(),
           
             //Card Section
             SizedBox(
@@ -34,18 +48,40 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
+            // Padding(
+            //   padding: EdgeInsets.only(left: 16.0, bottom: 16),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: <Widget>[
+            //       Text("Tony's Fridge Overview", style: TextStyle(fontSize: 20.0),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+            //_horizontalScroll(),
+            // ListView(
+            //   scrollDirection:  Axis.horizontal,
+            //   children: <Widget>[
+            //     Container(
+            //       width: 160.0,
+            //       color: Colors.blue,
+            //     ), 
+            //     Container(
+            //       width: 160.0,
+            //       color: Colors.red,
+            //     ), 
+            //     Container(
+            //       width: 160.0,
+            //       color: Colors.green,
+            //     ), 
+
+            //   ]
+
+            // ),
+
             Padding(
-              padding: EdgeInsets.only(left: 16.0, bottom: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Tony's Fridge Overview", style: TextStyle(fontSize: 20.0),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 470),
+              padding: EdgeInsets.only(top: 200),
               child: FlatButton(
                 color: Colors.lightBlue,
                 textColor: Colors.white,
@@ -65,4 +101,35 @@ class _HomeScreenState extends State<HomeScreen> {
       ), 
     );
   }
-}
+
+
+  Widget _horizontalScroll() => Container(
+    height: 200.0,
+    child: ListView(
+      scrollDirection:  Axis.horizontal,
+      children: <Widget>[
+        Container(
+          width: 160.0,
+          color: Colors.blue,
+        ), 
+        Container(
+          width: 160.0,
+          color: Colors.red,
+        ), 
+        Container(
+          width: 160.0,
+          color: Colors.green,
+        ), 
+      ]
+    )
+  );
+
+  Widget _buildTitle() => Padding(
+    padding: EdgeInsets.only(top: 8.0, left: 16.0),
+    child: Text(
+      "iFridge",
+      textAlign: TextAlign.left,
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)
+    ),
+  );
+} // End of class
