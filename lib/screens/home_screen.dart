@@ -109,9 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 disabledTextColor: Colors.black, 
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.blueAccent, 
-                onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
+                onPressed: () => Navigator.pushNamed(context, 'all_items'),
                 child: Text(
-                  "Recepies", 
+                  "All Items", 
                   style: TextStyle(fontSize: 30.0),
                 ),
               ),
