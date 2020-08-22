@@ -111,9 +111,9 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Upload'),
-          actions: <Widget>[IconButton(icon: Icon(Icons.check))]),
+      appBar: AppBar(title: Text('Upload'), actions: <Widget>[
+        IconButton(icon: Icon(Icons.check, color: Colors.white))
+      ]),
       // The image is stored as a file on the device. Use the `Image.file`
       // constructor with the given path to display the image.
       body: Image.file(File(imagePath)),
