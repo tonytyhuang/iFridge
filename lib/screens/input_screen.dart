@@ -15,20 +15,13 @@ class InputScreen extends StatefulWidget {
 
 class InputScreenState extends State<InputScreen> with WidgetsBindingObserver {
   CameraController _controller;
-  Future<void> _initializeControllerFuture;
   List<CameraDescription> cameras;
-
-  Future<void> getCamera() async {
-    cameras = await availableCameras();
-    print(cameras[0]);
-    _controller = new CameraController(cameras[0], ResolutionPreset.medium);
-    _initializeControllerFuture = _controller.initialize();
-  }
+  bool _isReady = false;
 
   @override
   void initState() {
-    getCamera();
     super.initState();
+    getCamera();
   }
 
   @override
@@ -36,6 +29,27 @@ class InputScreenState extends State<InputScreen> with WidgetsBindingObserver {
     // Dispose of the controller when the widget is disposed.
     _controller.dispose();
     super.dispose();
+  }
+
+  Future<void> getCamera() async {
+    cameras = await availableCameras();
+    _controller = new CameraController(cameras[0], ResolutionPreset.medium);
+    await _controller.initialize();
+    if (!mounted) return;
+    setState(() {
+      _isReady = true;
+      print("test");
+    });
+  }
+
+  Widget previewWidget() {
+    if (_isReady) {
+      // If the Future is complete, display the preview.
+      return CameraPreview(_controller);
+    } else {
+      // Otherwise, display a loading indicator.
+      return Center(child: CircularProgressIndicator());
+    }
   }
 
   @override
@@ -50,18 +64,8 @@ class InputScreenState extends State<InputScreen> with WidgetsBindingObserver {
       // Wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner
       // until the controller has finished initializing.
-      body: FutureBuilder<void>(
-        future: _initializeControllerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            // If the Future is complete, display the preview.
-            return CameraPreview(_controller);
-          } else {
-            // Otherwise, display a loading indicator.
-            return Center(child: CircularProgressIndicator());
-          }
-        },
-      ),
+      body: previewWidget(),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.camera_alt),
         // Provide an onPressed callback.
@@ -69,9 +73,6 @@ class InputScreenState extends State<InputScreen> with WidgetsBindingObserver {
           // Take the Picture in a try / catch block. If anything goes wrong,
           // catch the error.
           try {
-            // Ensure that the camera is initialized.
-            await _initializeControllerFuture;
-
             // Construct the path where the image should be saved using the
             // pattern package.
             final path = join(
