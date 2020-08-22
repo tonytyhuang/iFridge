@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/all_items.dart';
+import 'package:fridge_app/screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:fridge_app/models/user.dart';
 import 'package:fridge_app/screens/LoginScreen.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
             'loginScreen': (content) => LoginScreen(),
             'shopping_list': (content) => Shopping_List(),
             'input_screen': (content) => InputScreen(),
+            'all_items': (content) => AllItems(),
+            'welcome': (content) => Welcome(),
           }),
     );
   }

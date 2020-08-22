@@ -15,6 +15,7 @@ class _RegisterState extends State<Register> {
 
   String email = '';
   String password = '';
+  String username = '';
   String error = '';
 
   @override
@@ -39,6 +40,13 @@ class _RegisterState extends State<Register> {
         child: Form(
           key: _formKey,
           child: Column(children: <Widget>[
+            SizedBox(height: 20.0),
+            TextFormField(
+                validator: (val) =>
+                    val.isEmpty ? 'Please Enter a Username' : null,
+                onChanged: (val) {
+                  setState(() => username = val);
+                }),
             SizedBox(height: 20.0),
             TextFormField(
                 validator: (val) =>
