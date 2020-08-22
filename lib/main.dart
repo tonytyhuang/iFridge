@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/LoginScreen.dart';
 import 'package:fridge_app/screens/shopping_list.dart';
-import 'package:fridge_app/screens/wrapper.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
       routes: {
-        'wrapper': (content) => Wrapper(),
+        'loginScreen': (content) => LoginScreen(),
         'shopping_list': (content) => Shopping_List(),
       }
     );

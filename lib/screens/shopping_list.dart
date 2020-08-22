@@ -19,8 +19,7 @@ class _Shopping_ListState extends State<Shopping_List> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Good Morning'),
-                  Text('Tony Huang')
+                  Text('Your Shopping List'),
                 ],
               ),
             )

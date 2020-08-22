@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -25,16 +24,16 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.blue,
               textColor: Colors.white,
               disabledColor: Colors.grey,
-              disabledTextColor: Colors.black, 
+              disabledTextColor: Colors.black,
               padding: EdgeInsets.all(8.0),
-              splashColor: Colors.blueAccent, 
-              onPressed: () => Navigator.pushNamed(context, 'wrapper'),
+              splashColor: Colors.blueAccent,
+              onPressed: () => Navigator.pushNamed(context, 'loginScreen'),
               child: Text(
-                "Jackie's Button", 
+                "Jackie's Button",
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
-            
+
             Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 16),
               child: Column(
