@@ -3,10 +3,16 @@ import 'package:provider/provider.dart';
 import 'package:fridge_app/models/user.dart';
 import 'package:fridge_app/screens/LoginScreen.dart';
 import 'package:fridge_app/screens/shopping_list.dart';
+import 'package:fridge_app/screens/input_screen.dart';
 import 'screens/home_screen.dart';
 import 'package:fridge_app/services/auth.dart';
+import 'package:camera/camera.dart';
 
-void main() {
+List<CameraDescription> cameras = [];
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
@@ -21,6 +27,7 @@ class MyApp extends StatelessWidget {
           routes: {
             'loginScreen': (content) => LoginScreen(),
             'shopping_list': (content) => Shopping_List(),
+            'input_screen': (content) => InputScreen(),
           }),
     );
   }
