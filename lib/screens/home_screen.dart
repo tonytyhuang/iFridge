@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // ),
 
             Padding(
-              padding: EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.only(bottom: 20.0),
               child: FlatButton(
                 color: Colors.lightBlue,
                 textColor: Colors.white,
@@ -92,6 +92,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
                 child: Text(
                   "Shopping List", 
+                  style: TextStyle(fontSize: 30.0),
+                ),
+              ),
+            ),
+
+             Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: FlatButton(
+                color: Colors.lightBlue,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black, 
+                padding: EdgeInsets.all(8.0),
+                splashColor: Colors.blueAccent, 
+                onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
+                child: Text(
+                  "Recepies", 
                   style: TextStyle(fontSize: 30.0),
                 ),
               ),
