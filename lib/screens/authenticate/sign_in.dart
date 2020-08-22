@@ -20,9 +20,9 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.lightBlueAccent[400],
         elevation: 0.0,
         title: Text('Sign In'),
         actions: <Widget>[
@@ -41,6 +41,8 @@ class _SignInState extends State<SignIn> {
           child: Column(children: <Widget>[
             SizedBox(height: 20.0),
             TextFormField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.email), labelText: "Enter Your Email"),
                 validator: (val) =>
                     val.isEmpty ? 'Please Enter an Email' : null,
                 onChanged: (val) {
@@ -48,6 +50,8 @@ class _SignInState extends State<SignIn> {
                 }),
             SizedBox(height: 20.0),
             TextFormField(
+              decoration: InputDecoration(
+                  icon: Icon(Icons.lock), labelText: "Enter Your Password"),
               validator: (val) => val.length < 6 ? 'Password Invalid' : null,
               obscureText: true,
               onChanged: (val) {
