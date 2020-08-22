@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/shopping_list.dart';
 import 'package:fridge_app/screens/wrapper.dart';
 import 'screens/home_screen.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       routes: {
         'wrapper': (content) => Wrapper(),
+        'shopping_list': (content) => Shopping_List(),
       }
     );
   }

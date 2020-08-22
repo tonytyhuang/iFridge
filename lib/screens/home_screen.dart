@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           physics: ClampingScrollPhysics(),
           children: <Widget>[ 
+          
             //Card Section
             SizedBox(
               height: 25,
@@ -39,11 +40,27 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Good Morning'),
-                  Text('Tony Huang')
+                  Text("Tony's Fridge Overview", style: TextStyle(fontSize: 20.0),
+                  ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 470),
+              child: FlatButton(
+                color: Colors.lightBlue,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black, 
+                padding: EdgeInsets.all(8.0),
+                splashColor: Colors.blueAccent, 
+                onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
+                child: Text(
+                  "Shopping List", 
+                  style: TextStyle(fontSize: 30.0),
+                ),
+              ),
+            ),
           ]
         )
       ), 
