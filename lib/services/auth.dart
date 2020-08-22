@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fridge_app/models/user.dart';
+import 'package:fridge_app/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -40,6 +41,9 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+
+      // Create a new collection for the user
+      await DatabaseService(uid: user.uid).addUserDatabase();
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
