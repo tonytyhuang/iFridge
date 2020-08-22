@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/wrapper.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      routes: {
+        'wrapper': (content) => Wrapper(),
+      }
     );
   }
 }
