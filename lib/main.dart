@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fridge_app/screens/wrapper.dart';
+import 'package:fridge_app/screens/loginScreen.dart';
+
 import 'screens/home_screen.dart';
 
 void main() {
@@ -10,11 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-      routes: {
-        'wrapper': (content) => Wrapper(),
-      }
-    );
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen(),
+        routes: {'loginScreen': (content) => LoginScreen()});
   }
 }
