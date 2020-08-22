@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fridge_app/screens/loginScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:fridge_app/models/user.dart';
+import 'package:fridge_app/screens/LoginScreen.dart';
+import 'package:fridge_app/screens/shopping_list.dart';
 import 'screens/home_screen.dart';
 import 'package:fridge_app/services/auth.dart';
 
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: HomeScreen(),
-          routes: {'loginScreen': (content) => LoginScreen()}),
+          routes: {
+            'loginScreen': (content) => LoginScreen(),
+            'shopping_list': (content) => Shopping_List(),
+          }),
     );
   }
 }
