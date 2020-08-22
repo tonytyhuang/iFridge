@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
               disabledTextColor: Colors.black,
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
-              onPressed: () => Navigator.pushNamed(context, 'loginScreen'),
+              onPressed: () => Navigator.pushNamed(context, 'welcome'),
               child: Text(
                 "Jackie's Button",
                 style: TextStyle(fontSize: 20.0),
