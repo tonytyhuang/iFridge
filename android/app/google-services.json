@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "307462864859",
+    "firebase_url": "https://ifridge-9f33c.firebaseio.com",
+    "project_id": "ifridge-9f33c",
+    "storage_bucket": "ifridge-9f33c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307462864859:android:85308776a134b2c30c31fe",
+        "android_client_info": {
+          "package_name": "com.hackthe6ix.fridge_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307462864859-bsfcql7k4bet08j63nkki4fuept8fd9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD00xO-865jn_VGRpM1P-td8Yk_0Ww2Q9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307462864859-bsfcql7k4bet08j63nkki4fuept8fd9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
