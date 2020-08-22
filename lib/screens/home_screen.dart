@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               disabledTextColor: Colors.black,
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
-              onPressed: () => Navigator.pushNamed(context, 'loginScreen'),
+              onPressed: () => Navigator.pushNamed(context, 'welcome'),
               child: Text(
                 "Jackie's Button",
                 style: TextStyle(fontSize: 20.0),
@@ -100,25 +100,23 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: FlatButton(
                 color: Colors.lightBlue,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
-                disabledTextColor: Colors.black, 
+                disabledTextColor: Colors.black,
                 padding: EdgeInsets.all(8.0),
-                splashColor: Colors.blueAccent, 
+                splashColor: Colors.blueAccent,
                 onPressed: () => Navigator.pushNamed(context, 'all_items'),
                 child: Text(
-                  "All Items", 
+                  "All Items",
                   style: TextStyle(fontSize: 30.0),
                 ),
               ),
             ),
-          ]
-        )
-      ), 
+          ])),
     );
   }
 
