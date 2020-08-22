@@ -14,25 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
             _buildTitle(),
-            Padding(
-              padding: EdgeInsets.only(left: 8.0, bottom: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Tony's Fridge Overview",
-                    style: TextStyle(fontSize: 20.0),
-                    textAlign: TextAlign.left,
-                  ),
-                ],
-              ),
-            ),
+            _subtitle(),
+            _seeMore(),
             _horizontalScroll(),
-
-            //Card Section
-            SizedBox(
-              height: 25,
-            ),
 
             FlatButton(
               color: Colors.blue,
@@ -48,37 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // Padding(
-            //   padding: EdgeInsets.only(left: 16.0, bottom: 16),
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: <Widget>[
-            //       Text("Tony's Fridge Overview", style: TextStyle(fontSize: 20.0),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            //_horizontalScroll(),
-            // ListView(
-            //   scrollDirection:  Axis.horizontal,
-            //   children: <Widget>[
-            //     Container(
-            //       width: 160.0,
-            //       color: Colors.blue,
-            //     ),
-            //     Container(
-            //       width: 160.0,
-            //       color: Colors.red,
-            //     ),
-            //     Container(
-            //       width: 160.0,
-            //       color: Colors.green,
-            //     ),
-
-            //   ]
-
-            // ),
             RaisedButton(
                 onPressed: () => Navigator.pushNamed(context, 'input_screen'),
                 child: const Text('Enter Items')),
@@ -95,23 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
                 child: Text(
                   "Shopping List",
-                  style: TextStyle(fontSize: 30.0),
-                ),
-              ),
-            ),
-
-             Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: FlatButton(
-                color: Colors.lightBlue,
-                textColor: Colors.white,
-                disabledColor: Colors.grey,
-                disabledTextColor: Colors.black, 
-                padding: EdgeInsets.all(8.0),
-                splashColor: Colors.blueAccent, 
-                onPressed: () => Navigator.pushNamed(context, 'all_items'),
-                child: Text(
-                  "All Items", 
                   style: TextStyle(fontSize: 30.0),
                 ),
               ),
@@ -157,4 +93,32 @@ class _HomeScreenState extends State<HomeScreen> {
             textAlign: TextAlign.left,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
       );
+
+  Widget _seeMore() => Padding(
+    padding: const EdgeInsets.only(right:8.0),
+      child: new GestureDetector(
+        onTap: (){
+          Navigator.pushNamed(context, 'all_items');
+        },
+        child: new Text("See all...",
+          style: TextStyle(color: Colors.black, fontSize: 20.0),
+          textAlign: TextAlign.right,
+        )
+      ),
+    );
+
+  Widget _subtitle() => Padding(
+    padding: EdgeInsets.only(left: 8.0, bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "Tony's Fridge Overview",
+              style: TextStyle(fontSize: 20.0),
+              textAlign: TextAlign.left,
+          ),
+        ],
+      ),
+    );
+    
 } // End of class
