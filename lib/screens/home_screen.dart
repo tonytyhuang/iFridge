@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         toolbarHeight: 90,
         title: _buildTitle(),
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Color(0xFF06161d),
         elevation: 0.0,
       ),
       endDrawer: MainDrawer(),
@@ -35,9 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.orange[900], Colors.orange[100]]),
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Color(0xFFf57900), Color(0xFFf6ad34)],
+                        ),
                       ),
                     ),
                   ),
@@ -51,23 +52,23 @@ class _HomeScreenState extends State<HomeScreen> {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Colors.blueGrey[900],
-                              Colors.blueGrey[100]
+                              Color(0xFF06161d),
+                              Color(0xFF103b3a),
                             ]),
                       ),
                     ),
                   ),
-                  Positioned(
+                  /*Positioned(
                     right: 20,
                     top: 30,
                     child: Text(
-                      "Morning",
+                      "We Smurfing",
                       style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
 
@@ -292,27 +293,32 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SizedBox(
               height: 150.0,
               width: 150.0,
-              child: new RaisedButton(
+              child: new RaisedButton.icon(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     side: BorderSide(color: Colors.blueGrey)),
-                child: new Text("Add Food"),
+                icon: Icon(Icons.add_shopping_cart),
+                label: Text("Add Item"),
                 color: Colors.blueAccent[600],
                 onPressed: () => Navigator.pushNamed(context, 'input_screen'),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: SizedBox(
+              padding: const EdgeInsets.all(20.0),
+              child: SizedBox(
                 height: 150.0,
                 width: 150.0,
-                child: new RaisedButton(
-                    child: new Text("Recipies"),
-                    color: Colors.blueAccent,
-                    onPressed: () =>
-                        Navigator.pushNamed(context, 'input_screen'))),
-          )
+                child: new RaisedButton.icon(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: BorderSide(color: Colors.blueGrey)),
+                  icon: Icon(Icons.assignment),
+                  label: Text("Recipes"),
+                  color: Colors.blueAccent[600],
+                  onPressed: () => Navigator.pushNamed(context, 'input_screen'),
+                ),
+              ))
         ],
       ));
   Widget _shoppingList() => new Container(
