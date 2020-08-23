@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Welcome(),
+          home: HomeScreen(),
           routes: {
             'loginScreen': (content) => LoginScreen(),
             'shopping_list': (content) => Shopping_List(),
