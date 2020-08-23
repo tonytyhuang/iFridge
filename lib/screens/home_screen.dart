@@ -308,7 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 150.0,
                 width: 150.0,
                 child: new RaisedButton(
-                    child: new Text("Recepies"),
+                    child: new Text("Recipies"),
                     color: Colors.blueAccent,
                     onPressed: () =>
                         Navigator.pushNamed(context, 'input_screen'))),
