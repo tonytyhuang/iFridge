@@ -15,16 +15,17 @@ class _RegisterState extends State<Register> {
 
   String email = '';
   String password = '';
+  String username = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.lightBlueAccent[400],
         elevation: 0.0,
-        title: Text('Sign Up'),
+        title: Text('Register'),
         actions: <Widget>[
           FlatButton.icon(
               icon: Icon(Icons.person),
@@ -42,12 +43,25 @@ class _RegisterState extends State<Register> {
             SizedBox(height: 20.0),
             TextFormField(
                 validator: (val) =>
+                    val.isEmpty ? 'Please Enter a Username' : null,
+                decoration: InputDecoration(
+                    icon: Icon(Icons.person), labelText: "Enter a Username"),
+                onChanged: (val) {
+                  setState(() => username = val);
+                }),
+            SizedBox(height: 20.0),
+            TextFormField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.email), labelText: "Enter a Email"),
+                validator: (val) =>
                     val.isEmpty ? 'Please Enter an Email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
                 }),
             SizedBox(height: 20.0),
             TextFormField(
+              decoration: InputDecoration(
+                  icon: Icon(Icons.lock), labelText: "Enter a Password"),
               obscureText: true,
               validator: (val) => val.length < 6 ? 'Password Invalid' : null,
               onChanged: (val) {
