@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/main_drawer.dart';
+import 'package:fridge_app/services/auth.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,9 +8,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+        backgroundColor: Colors.lightBlueAccent[400],
+        elevation: 0.0,
+      ),
+      endDrawer: MainDrawer(),
       body: SafeArea(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
