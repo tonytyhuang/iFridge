@@ -14,24 +14,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
-        backgroundColor: Colors.lightBlueAccent[400],
+        toolbarHeight: 90,
+        title: _buildTitle(),
+        backgroundColor: Colors.blueGrey[900],
         elevation: 0.0,
       ),
       endDrawer: MainDrawer(),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
-            image: AssetImage("assets/images/food2.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
         child: SafeArea(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-              _buildTitle(),
+              //_buildTitle(),
               _subtitle(),
               _horizontalScroll(),
               _buildButtons(),
@@ -48,22 +42,132 @@ class _HomeScreenState extends State<HomeScreen> {
           padding:
               EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
           child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.blue, width: 3),
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.blue[100],
+            ),
             width: 160.0,
-            color: Colors.blue,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 75,
+                  left: 28,
+                  child: Image(
+                    image: AssetImage("assets/images/apple.png"),
+                    width: 100,
+                  ),
+                ),
+                Positioned(
+                  bottom: 42,
+                  left: 35,
+                  child: Center(
+                    child: Text(
+                      "Apple (3)",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  left: 15,
+                  child: Center(
+                    child: Text(
+                      "Expires in 10 days",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:
+              EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
           child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.blue, width: 3),
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.blue[100],
+            ),
             width: 160.0,
-            color: Colors.red,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 65,
+                  left: 18,
+                  child: Image(
+                    image: AssetImage("assets/images/meat.png"),
+                    width: 120,
+                  ),
+                ),
+                Positioned(
+                  bottom: 42,
+                  left: 12,
+                  child: Center(
+                    child: Text(
+                      "Pork Chop (2)",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  left: 18,
+                  child: Center(
+                    child: Text(
+                      "Expires in 4 days",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:
+              EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
           child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.blue, width: 3),
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.blue[100],
+            ),
             width: 160.0,
-            color: Colors.green,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 75,
+                  left: 28,
+                  child: Image(
+                    image: AssetImage("assets/images/apple.png"),
+                    width: 100,
+                  ),
+                ),
+                Positioned(
+                  bottom: 42,
+                  left: 35,
+                  child: Center(
+                    child: Text(
+                      "Apple (3)",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  left: 15,
+                  child: Center(
+                    child: Text(
+                      "Expires in 10 days",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
@@ -90,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ]));
 
   Widget _buildTitle() => Padding(
-        padding: EdgeInsets.only(top: 16.0, left: 16.0),
+        padding: EdgeInsets.only(top: 12.0),
         child: Text("iFridge",
             textAlign: TextAlign.left,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
