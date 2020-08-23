@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         toolbarHeight: 90,
         title: _buildTitle(),
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Color(0xFF06161d),
         elevation: 0.0,
       ),
       endDrawer: MainDrawer(),
@@ -26,6 +26,52 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+              Stack(
+                children: [
+                  ClipPath(
+                    clipper: MyClipper2(),
+                    child: Container(
+                      height: 120,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Color(0xFFf57900), Color(0xFFf6ad34)],
+                        ),
+                      ),
+                    ),
+                  ),
+                  ClipPath(
+                    clipper: MyClipper(),
+                    child: Container(
+                      height: 120,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xFF06161d),
+                              Color(0xFF103b3a),
+                            ]),
+                      ),
+                    ),
+                  ),
+                  /*Positioned(
+                    right: 20,
+                    top: 30,
+                    child: Text(
+                      "We Smurfing",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),*/
+                ],
+              ),
+
               //_buildTitle(),
               _subtitle(),
               _horizontalScroll(),
@@ -224,15 +270,18 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
       );
   Widget _subtitle() => Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.only(top: 0, left: 10.0, right: 10.0),
         child: LeftRightAlign(
             left: Text("Expiring Soon...", style: TextStyle(fontSize: 25.0)),
-            right: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'all_items');
-              },
-              child: Text('See more',
-                  style: TextStyle(fontSize: 15.0), textAlign: TextAlign.end),
+            right: Padding(
+              padding: EdgeInsets.only(top: 12.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'all_items');
+                },
+                child: Text('See more',
+                    style: TextStyle(fontSize: 15.0), textAlign: TextAlign.end),
+              ),
             )),
       );
   Widget _buildButtons() => new Container(
@@ -244,50 +293,92 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SizedBox(
               height: 150.0,
               width: 150.0,
-              child: new RaisedButton(
+              child: new RaisedButton.icon(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     side: BorderSide(color: Colors.blueGrey)),
-                child: new Text("Add Food"),
+                icon: Icon(Icons.add_shopping_cart),
+                label: Text("Add Item"),
                 color: Colors.blueAccent[600],
                 onPressed: () => Navigator.pushNamed(context, 'input_screen'),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: SizedBox(
+              padding: const EdgeInsets.all(20.0),
+              child: SizedBox(
                 height: 150.0,
                 width: 150.0,
-                child: new RaisedButton(
-                    child: new Text("Recepies"),
-                    color: Colors.blueAccent,
-                    onPressed: () =>
-                        Navigator.pushNamed(context, 'input_screen'))),
-          )
+                child: new RaisedButton.icon(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: BorderSide(color: Colors.blueGrey)),
+                  icon: Icon(Icons.assignment),
+                  label: Text("Recipes"),
+                  color: Colors.blueAccent[600],
+                  onPressed: () => Navigator.pushNamed(context, 'input_screen'),
+                ),
+              ))
         ],
       ));
   Widget _shoppingList() => new Container(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: MaterialButton(
-                height: 60.0,
-                minWidth: MediaQuery.of(context).size.width,
-                color: Colors.lightBlue,
-                textColor: Colors.white,
-                disabledColor: Colors.grey,
-                disabledTextColor: Colors.black,
-                padding: EdgeInsets.all(8.0),
-                splashColor: Colors.blueAccent,
-                onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
-                child: Text(
-                  "Shopping List",
-                  style: TextStyle(fontSize: 30.0),
-                ),
-              ),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: MaterialButton(
+            height: 60.0,
+            minWidth: MediaQuery.of(context).size.width,
+            color: Colors.lightBlue,
+            textColor: Colors.white,
+            disabledColor: Colors.grey,
+            disabledTextColor: Colors.black,
+            padding: EdgeInsets.all(8.0),
+            splashColor: Colors.blueAccent,
+            onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
+            child: Text(
+              "Shopping List",
+              style: TextStyle(fontSize: 30.0),
             ),
-          ]));
+          ),
+        ),
+      ]));
 } // End of class
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 10);
+    path.quadraticBezierTo(size.width / 4, size.height - 10,
+        size.width / 2 - 35, size.height - 70);
+    path.quadraticBezierTo(
+        size.width / 4 * 3 - 35, -5, size.width, size.height - 90);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+class MyClipper2 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(30, 0);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 20);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}

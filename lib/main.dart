@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
             'all_items': (content) => AllItems(),
             'welcome': (content) => Welcome(),
             'upload_screen': (content) => UploadScreen(),
+            'home_screen': (content) => HomeScreen()
           }),
     );
   }
