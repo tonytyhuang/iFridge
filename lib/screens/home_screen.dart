@@ -19,16 +19,25 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0.0,
       ),
       endDrawer: MainDrawer(),
-      body: SafeArea(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-            _buildTitle(),
-            _subtitle(),
-            _horizontalScroll(),
-            _buildButtons(),
-            _shoppingList(),
-          ])),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
+            image: AssetImage("assets/images/food2.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+              _buildTitle(),
+              _subtitle(),
+              _horizontalScroll(),
+              _buildButtons(),
+              _shoppingList(),
+            ])),
+      ),
     );
   }
 
