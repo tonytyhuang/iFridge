@@ -1,5 +1,7 @@
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UploadScreen extends StatefulWidget {
   @override
@@ -93,8 +95,27 @@ class UploadScreenState extends State<UploadScreen> {
     );
   }
 
+  Future<void> addFood(String name, String quantity, String expiration) async {
+    final uid = await FirebaseAuth.instance.currentUser();
+    final CollectionReference foodDatabase = Firestore.instance
+        .collection('Users')
+        .document(uid.uid)
+        .collection('Food');
+    return foodDatabase
+        .add({
+          'name': name, // John Doe
+          'quantity': quantity, // Stokes and Sons
+          'expiration': expiration, // 42
+        })
+        .then((value) => print("Food Added"))
+        .catchError((error) => print("Failed to add food: $error"));
+  }
+
   itemsUpload() {
     //TONY PUT DOWNLOAD HERE, LIST IS CALLED "ITEMS"
+    items.forEach((element) {
+      addFood(element.itemName, element.itemQuantity, '23/08/20');
+    });
 
     Navigator.pushNamed(context, 'home_screen');
   }
