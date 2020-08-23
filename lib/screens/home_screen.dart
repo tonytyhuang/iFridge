@@ -17,25 +17,21 @@ class _HomeScreenState extends State<HomeScreen> {
             _subtitle(),
             _seeMore(),
             _horizontalScroll(),
-
-            FlatButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              disabledColor: Colors.grey,
-              disabledTextColor: Colors.black,
-              padding: EdgeInsets.all(8.0),
-              splashColor: Colors.blueAccent,
-              onPressed: () => Navigator.pushNamed(context, 'welcome'),
-              child: Text(
-                "Jackie's Button",
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
-
-            RaisedButton(
-                onPressed: () => Navigator.pushNamed(context, 'input_screen'),
-                child: const Text('Enter Items')),
-
+            new Container(
+                child: new Row(
+              children: <Widget>[
+                new RaisedButton(
+                  child: new Text("Add Food"),
+                  color: Colors.blueAccent[600],
+                  onPressed: () => Navigator.pushNamed(context, 'input_screen'),
+                ),
+                new RaisedButton(
+                    child: new Text("Recepies"),
+                    color: Colors.blueAccent,
+                    onPressed: () =>
+                        Navigator.pushNamed(context, 'input_screen'))
+              ],
+            )),
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: FlatButton(
@@ -52,9 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-          ]
-        )
-      ), 
+          ])),
     );
   }
 
@@ -95,30 +89,29 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
   Widget _seeMore() => Padding(
-    padding: const EdgeInsets.only(right:8.0),
-      child: new GestureDetector(
-        onTap: (){
-          Navigator.pushNamed(context, 'all_items');
-        },
-        child: new Text("See all...",
-          style: TextStyle(color: Colors.black, fontSize: 20.0),
-          textAlign: TextAlign.right,
-        )
-      ),
-    );
+        padding: const EdgeInsets.only(right: 8.0),
+        child: new GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'all_items');
+            },
+            child: new Text(
+              "See all...",
+              style: TextStyle(color: Colors.black, fontSize: 20.0),
+              textAlign: TextAlign.right,
+            )),
+      );
 
   Widget _subtitle() => Padding(
-    padding: EdgeInsets.only(left: 8.0, bottom: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            "Tony's Fridge Overview",
+        padding: EdgeInsets.only(left: 8.0, bottom: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Tony's Fridge Overview",
               style: TextStyle(fontSize: 20.0),
               textAlign: TextAlign.left,
-          ),
-        ],
-      ),
-    );
-    
+            ),
+          ],
+        ),
+      );
 } // End of class
