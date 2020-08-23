@@ -322,27 +322,31 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ));
   Widget _shoppingList() => new Container(
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: MaterialButton(
-            height: 60.0,
-            minWidth: MediaQuery.of(context).size.width,
-            color: Colors.lightBlue,
-            textColor: Colors.white,
-            disabledColor: Colors.grey,
-            disabledTextColor: Colors.black,
-            padding: EdgeInsets.all(8.0),
-            splashColor: Colors.blueAccent,
-            onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
-            child: Text(
-              "Shopping List",
-              style: TextStyle(fontSize: 30.0),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  side: BorderSide(color: Colors.grey[900]),
+                ),
+                height: 60.0,
+                minWidth: 250.0,
+                color: Colors.lightBlue[50],
+                textColor: Colors.grey[900],
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black,
+                splashColor: Colors.blueAccent,
+                onPressed: () => Navigator.pushNamed(context, 'shopping_list'),
+                child: Text(
+                  "Shopping List",
+                  style: TextStyle(fontSize: 30.0),
+                ),
+              ),
             ),
-          ),
-        ),
-      ]));
+          ]));
 } // End of class
 
 class MyClipper extends CustomClipper<Path> {
