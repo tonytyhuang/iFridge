@@ -9,12 +9,11 @@ import 'package:fridge_app/screens/input_screen.dart';
 import 'screens/home_screen.dart';
 import 'package:fridge_app/services/auth.dart';
 import 'package:camera/camera.dart';
+import 'screens/upload_screen.dart';
 
 List<CameraDescription> cameras = [];
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  cameras = await availableCameras();
+void main() async {
   runApp(MyApp());
 }
 
@@ -32,6 +31,7 @@ class MyApp extends StatelessWidget {
             'input_screen': (content) => InputScreen(),
             'all_items': (content) => AllItems(),
             'welcome': (content) => Welcome(),
+            'upload_screen': (content) => UploadScreen(),
           }),
     );
   }
