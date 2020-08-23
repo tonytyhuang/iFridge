@@ -204,37 +204,14 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(10.0),
         child: LeftRightAlign(
             left: Text("Expiring Soon...", style: TextStyle(fontSize: 25.0)),
-            right: Text('See more',
-                style: TextStyle(fontSize: 15.0), textAlign: TextAlign.end)),
+            right: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'all_items');
+              },
+              child: Text('See more',
+                  style: TextStyle(fontSize: 15.0), textAlign: TextAlign.end),
+            )),
       );
-  // Widget _subtitle() => Padding(
-  //       padding: EdgeInsets.only(left: 16.0, bottom: 8.0, top: 8.0),
-  //       child: Row(
-  //         mainAxisAlignment: MainAxisAlignment.start,
-  //         children: <Widget>[
-  //           Align(
-  //             alignment: Alignment.topLeft,
-  //             child: Text(
-  //               "Tony's Fridge Overview",
-  //               style: TextStyle(fontSize: 20.0),
-  //               textAlign: TextAlign.left,
-  //             ),
-  //           ),
-  //           Align(
-  //             alignment: Alignment.topRight,
-  //             child: new GestureDetector(
-  //                 onTap: () {
-  //                   Navigator.pushNamed(context, 'all_items');
-  //                 },
-  //                 child: new Text(
-  //                   "See all",
-  //                   style: TextStyle(color: Colors.black, fontSize: 20.0),
-  //                   textAlign: TextAlign.right,
-  //                 )),
-  //           ),
-  //         ],
-  //       ),
-  //     );
   Widget _buildButtons() => new Container(
           child: new Row(
         mainAxisAlignment: MainAxisAlignment.center,
