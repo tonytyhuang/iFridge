@@ -1,29 +1,31 @@
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
-=======
->>>>>>> 4e8dadabe5d29af326db601e3cd65c7de9b3a96a
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fridge_app/screens/home_screen.dart';
 
 class AllItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            body: StreamBuilder(
-                stream: getUserFoodSnap(context),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return new ListView.builder(
-                      itemCount: snapshot.data.documents.length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          buildFoodCard(
-                              context, snapshot.data.documents[index]));
-                })));
+    return Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 90,
+          title: _buildTitle(),
+          backgroundColor: Colors.blueGrey[900],
+          elevation: 0.0,
+        ),
+        body: StreamBuilder(
+            stream: getUserFoodSnap(context),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return new ListView.builder(
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      buildFoodCard(context, snapshot.data.documents[index]));
+            }));
   }
 
   Stream<QuerySnapshot> getUserFoodSnap(BuildContext context) async* {
@@ -80,3 +82,10 @@ class AllItems extends StatelessWidget {
     ));
   }
 }
+
+Widget _buildTitle() => Padding(
+      padding: EdgeInsets.only(top: 12.0),
+      child: Text("iFridge",
+          textAlign: TextAlign.left,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
+    );
