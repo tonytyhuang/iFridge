@@ -37,11 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _horizontalScroll() => Container(
-      height: 200.0,
+      height: 160.0,
       child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
         Padding(
           padding:
-              EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
+              EdgeInsets.only(right: 4.0, top: 8.0, bottom: 8.0, left: 16.0),
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.blue, width: 3),
@@ -52,15 +52,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               children: [
                 Positioned(
-                  bottom: 75,
-                  left: 28,
+                  bottom: 57,
+                  left: 38,
                   child: Image(
                     image: AssetImage("assets/images/apple.png"),
-                    width: 100,
+                    width: 80,
                   ),
                 ),
                 Positioned(
-                  bottom: 42,
+                  bottom: 30,
                   left: 35,
                   child: Center(
                     child: Text(
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Positioned(
-                  bottom: 15,
+                  bottom: 8,
                   left: 15,
                   child: Center(
                     child: Text(
@@ -85,26 +85,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Padding(
           padding:
-              EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
+              EdgeInsets.only(right: 4.0, top: 8.0, bottom: 8.0, left: 12.0),
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.blue, width: 3),
+              border: Border.all(color: Colors.red, width: 3),
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.blue[100],
+              color: Colors.red[100],
             ),
             width: 160.0,
             child: Stack(
               children: [
                 Positioned(
-                  bottom: 65,
-                  left: 18,
+                  bottom: 45,
+                  left: 22,
                   child: Image(
                     image: AssetImage("assets/images/meat.png"),
-                    width: 120,
+                    width: 110,
                   ),
                 ),
                 Positioned(
-                  bottom: 42,
+                  bottom: 30,
                   left: 12,
                   child: Center(
                     child: Text(
@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Positioned(
-                  bottom: 15,
+                  bottom: 8,
                   left: 18,
                   child: Center(
                     child: Text(
@@ -129,40 +129,40 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Padding(
           padding:
-              EdgeInsets.only(right: 8.0, top: 8.0, bottom: 8.0, left: 16.0),
+              EdgeInsets.only(right: 4.0, top: 8.0, bottom: 8.0, left: 12.0),
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.blue, width: 3),
+              border: Border.all(color: Colors.green, width: 3),
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.blue[100],
+              color: Colors.green[100],
             ),
             width: 160.0,
             child: Stack(
               children: [
                 Positioned(
-                  bottom: 75,
-                  left: 28,
+                  bottom: 40,
+                  left: 18,
                   child: Image(
-                    image: AssetImage("assets/images/apple.png"),
-                    width: 100,
+                    image: AssetImage("assets/images/banana.png"),
+                    width: 110,
                   ),
                 ),
                 Positioned(
-                  bottom: 42,
-                  left: 35,
+                  bottom: 30,
+                  left: 26,
                   child: Center(
                     child: Text(
-                      "Apple (3)",
+                      "Banana (7)",
                       style: TextStyle(fontSize: 22),
                     ),
                   ),
                 ),
                 Positioned(
-                  bottom: 15,
-                  left: 15,
+                  bottom: 8,
+                  left: 19,
                   child: Center(
                     child: Text(
-                      "Expires in 10 days",
+                      "Expires in 6 days",
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
@@ -172,24 +172,47 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:
+              EdgeInsets.only(right: 4.0, top: 8.0, bottom: 8.0, left: 12.0),
           child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.yellow, width: 3),
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.yellow[100],
+            ),
             width: 160.0,
-            color: Colors.orange,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 160.0,
-            color: Colors.yellow,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 160.0,
-            color: Colors.teal,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 55,
+                  left: 45,
+                  child: Image(
+                    image: AssetImage("assets/images/carrot.png"),
+                    width: 85,
+                  ),
+                ),
+                Positioned(
+                  bottom: 30,
+                  left: 32,
+                  child: Center(
+                    child: Text(
+                      "Carrot (2)",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 8,
+                  left: 19,
+                  child: Center(
+                    child: Text(
+                      "Expires in 6 days",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ]));

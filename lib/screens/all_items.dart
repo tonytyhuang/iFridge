@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
-=======
->>>>>>> 4e8dadabe5d29af326db601e3cd65c7de9b3a96a
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
