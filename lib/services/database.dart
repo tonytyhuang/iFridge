@@ -7,8 +7,6 @@ class DatabaseService {
   final CollectionReference users = Firestore.instance.collection('Users');
 
   Future<void> addUserDatabase() async {
-    return await users.document(uid).collection('Food').document().setData({
-      'TestData': "Data",
-    });
+    return await users.document(uid).collection('Food').document().setData({});
   }
 }
