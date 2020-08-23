@@ -297,8 +297,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     side: BorderSide(color: Colors.blueGrey)),
-                icon: Icon(Icons.add_shopping_cart),
-                label: Text("Add Item"),
+                icon: Icon(
+                  Icons.add_shopping_cart,
+                  size: 50,
+                ),
+                label: Text(
+                  "Add Item",
+                  style: TextStyle(fontSize: 15),
+                ),
                 color: Colors.blueAccent[600],
                 onPressed: () => Navigator.pushNamed(context, 'input_screen'),
               ),
@@ -313,8 +319,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                       side: BorderSide(color: Colors.blueGrey)),
-                  icon: Icon(Icons.assignment),
-                  label: Text("Recipes"),
+                  icon: Icon(
+                    Icons.assignment,
+                    size: 50,
+                  ),
+                  label: Text(
+                    "Recipes",
+                    style: TextStyle(fontSize: 15),
+                  ),
                   color: Colors.blueAccent[600],
                   onPressed: () => Navigator.pushNamed(context, 'input_screen'),
                 ),
