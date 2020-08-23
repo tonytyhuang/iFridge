@@ -11,6 +11,7 @@ class UploadScreenState extends State<UploadScreen> {
     ItemInfo(itemName: "Tomato", itemQuantity: "5"),
     ItemInfo(itemName: "Cucumber", itemQuantity: "3")
   };
+  bool initial = true;
 
   var selectedItems = <ItemInfo>{};
 
@@ -92,9 +93,25 @@ class UploadScreenState extends State<UploadScreen> {
     );
   }
 
+  itemsUpload() {
+    //TONY PUT DOWNLOAD HERE, LIST IS CALLED "ITEMS"
+
+    Navigator.pushNamed(context, 'home_screen');
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Edit and Save')),
+        appBar: AppBar(
+          title: Text('Edit and Save'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.file_download, color: Colors.white),
+              iconSize: 30,
+              padding: EdgeInsets.only(right: 20),
+              onPressed: () => itemsUpload(),
+            )
+          ],
+        ),
         body: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
