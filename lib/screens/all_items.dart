@@ -6,6 +6,7 @@ import 'package:fridge_app/screens/home_screen.dart';
 class AllItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 90,
@@ -21,8 +22,11 @@ class AllItems extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               }
-              return new ListView.builder(
+              return new GridView.builder(
                   itemCount: snapshot.data.documents.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount:
+                          (orientation == Orientation.portrait) ? 2 : 3),
                   itemBuilder: (BuildContext context, int index) =>
                       buildFoodCard(context, snapshot.data.documents[index]));
             }));
@@ -55,7 +59,7 @@ class AllItems extends StatelessWidget {
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 4.0, bottom: 80.0),
+              padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
               child: Row(children: <Widget>[
                 Text(
                   document['quantity'],
@@ -65,7 +69,7 @@ class AllItems extends StatelessWidget {
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+              padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
               child: Row(
                 children: <Widget>[
                   Text(
@@ -85,7 +89,7 @@ class AllItems extends StatelessWidget {
 
 Widget _buildTitle() => Padding(
       padding: EdgeInsets.only(top: 12.0),
-      child: Text("iFridge",
+      child: Text("Food Items",
           textAlign: TextAlign.left,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35.0)),
     );
