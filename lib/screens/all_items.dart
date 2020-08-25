@@ -14,22 +14,27 @@ class AllItems extends StatelessWidget {
           backgroundColor: Colors.blueGrey[900],
           elevation: 0.0,
         ),
-        body: StreamBuilder(
-            stream: getUserFoodSnap(context),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return new GridView.builder(
-                  itemCount: snapshot.data.documents.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount:
-                          (orientation == Orientation.portrait) ? 2 : 3),
-                  itemBuilder: (BuildContext context, int index) =>
-                      buildFoodCard(context, snapshot.data.documents[index]));
-            }));
+        body: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: StreamBuilder(
+                stream: getUserFoodSnap(context),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  return new GridView.builder(
+                      itemCount: snapshot.data.documents.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 10.0,
+                          mainAxisSpacing: 10.0,
+                          crossAxisCount:
+                              (orientation == Orientation.portrait) ? 2 : 3),
+                      itemBuilder: (BuildContext context, int index) =>
+                          buildFoodCard(
+                              context, snapshot.data.documents[index]));
+                })));
   }
 
   Stream<QuerySnapshot> getUserFoodSnap(BuildContext context) async* {
@@ -44,37 +49,46 @@ class AllItems extends StatelessWidget {
   Widget buildFoodCard(BuildContext context, DocumentSnapshot document) {
     return new Container(
         child: Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
+            child: Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue, width: 4),
+          borderRadius: BorderRadius.circular(0.0),
+          color: Colors.blue[100],
+        ),
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+              padding: const EdgeInsets.only(
+                  right: 16.0, top: 12.0, bottom: 24.0, left: 16.0),
               child: Row(children: <Widget>[
                 Text(
                   document['name'],
-                  style: new TextStyle(fontSize: 30.0),
+                  style: new TextStyle(fontSize: 25.0),
                 ),
                 Spacer(),
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
+              padding: const EdgeInsets.only(
+                  right: 16.0, top: 4.0, bottom: 8.0, left: 16.0),
               child: Row(children: <Widget>[
                 Text(
                   document['quantity'],
-                  style: new TextStyle(fontSize: 30.0),
+                  style: new TextStyle(fontSize: 25.0),
                 ),
                 Spacer(),
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
+              padding: const EdgeInsets.only(
+                  right: 16.0, top: 4.0, bottom: 8.0, left: 16.0),
               child: Row(
                 children: <Widget>[
                   Text(
                     document['expiration'],
-                    style: new TextStyle(fontSize: 30.0),
+                    style: new TextStyle(fontSize: 25.0),
                   ),
                   Spacer(),
                 ],
@@ -83,7 +97,7 @@ class AllItems extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    )));
   }
 }
 
